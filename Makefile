@@ -102,3 +102,6 @@ clean:
 	$(RM) -r dia-shapes/sheets/*.sheet 
 	$(RM) -r dia-shapes/shapes/dia-ocarina6/*.shape
 	$(RM) -r dia-shapes/shapes/dia-ocarina6/*.png
+
+gitcola:
+	git-cola
