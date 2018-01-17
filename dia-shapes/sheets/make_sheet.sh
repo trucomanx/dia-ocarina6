@@ -24,7 +24,7 @@ echo 'param2: '${SEARCHDIR}
 echo 'param2: '${DESCRIPTIONFILE}
 
 ################################################################################
-SHAPEFILES=`find ${SEARCHDIR}  -depth  -type f -name '*.shape'`
+SHAPEFILES=`find ${SEARCHDIR}  -depth  -type f -name '*.shape'|sort -n`
 NAME=`grep "^Name: " ${DESCRIPTIONFILE} | cut -f2 -d" "`
 DESCRIPTION=`grep "^Description: " ${DESCRIPTIONFILE} | cut -f2 -d":"`
 
