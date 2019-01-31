@@ -28,7 +28,24 @@ help:
 	@echo 
 	@echo "   deb       - Creates a *.deb release file (it uses first: make shapes)."
 	@echo "   dist      - Creates a *.tar.gz release file (it uses first: make shapes)."
+	@echo 
+	@echo "   images    - Creates png files in 'output' directory."
 	@echo
+
+
+IMAGES_FILES   := $(DIA_FILES:.dia=.png)
+
+%.png: %.dia
+	@echo ""
+	@echo "Creating images: "$@
+	$(DIA) --size=64x  --export="$@" "$<"
+
+images: $(IMAGES_FILES)
+	@echo ""
+	mkdir -p output
+	mv $(IMAGES_FILES) -t output
+	@echo "All images were created..........[OK]"
+
 
 
 %.shape: %.dia
